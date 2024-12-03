@@ -39,7 +39,8 @@ public:
 
 private:
     // 定数
-    static constexpr const char* CROSSPOINT_PATH = "/root/turtlebot3_ws/src/traffic_topic/config/crossing_points/test.yaml";
+    //static constexpr const char* CROSSPOINT_PATH = "/root/turtlebot3_ws/src/traffic_topic/config/crossing_points/test.yaml";
+    static constexpr const char* CROSSPOINT_PATH = "/root/turtlebot3_ws/src/cross_traffic_manager_cpp/config/crossing_points/test.yaml";
 
     // メンバ変数
     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr current_waypoint_sub_;
