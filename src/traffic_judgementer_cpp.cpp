@@ -13,11 +13,11 @@ public:
     TrafficJudgementerCpp() : Node("traffic_judgmenter"), traffic_request_(false) {
         // サブスクリプション
         current_waypoint_sub_ = this->create_subscription<std_msgs::msg::Int32>(
-            "waypoint_manager2/current_waypoint", 10,
+            "waypoint_manager2/current_waypoint", 1,
             std::bind(&TrafficJudgementerCpp::current_waypoint_callback, this, std::placeholders::_1));
 
         traffic_yolov8_sub_ = this->create_subscription<std_msgs::msg::String>(
-            "current_traffic_output", 10,
+            "current_traffic_output", 1,
             std::bind(&TrafficJudgementerCpp::current_traffic_output_callback, this, std::placeholders::_1));
 
         // クライアント
@@ -40,7 +40,7 @@ public:
 private:
     // 定数
     //static constexpr const char* CROSSPOINT_PATH = "/root/turtlebot3_ws/src/traffic_topic/config/crossing_points/test.yaml";
-    static constexpr const char* CROSSPOINT_PATH = "/root/turtlebot3_ws/src/cross_traffic_manager_cpp/config/crossing_points/test.yaml";
+    static constexpr const char* CROSSPOINT_PATH = "/home/orne-box/orne_ws/src/cross_traffic_manager_cpp/config/crossing_points/tukuba2024.yaml";
 
     // メンバ変数
     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr current_waypoint_sub_;
@@ -66,7 +66,7 @@ private:
     void traffic_judgment() {
         if (current_waypoint_msg_ != -1 && !traffic_msg_.empty()) {
             if (std::find(crossing_points_numbers_.begin(), crossing_points_numbers_.end(), current_waypoint_msg_) != crossing_points_numbers_.end() &&
-                traffic_msg_.find("person") != std::string::npos && !traffic_request_) {
+                traffic_msg_.find("Blue") != std::string::npos && !traffic_request_) {
                 
                 traffic_request_ = true;
                 RCLCPP_INFO(this->get_logger(), "Crossing condition met. Sending request...");

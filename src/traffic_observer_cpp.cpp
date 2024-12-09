@@ -10,7 +10,7 @@ public:
     TrafficObserverCpp()
         : Node("traffic_observer"), stop_requested_(false) {
         // ROS2 Publisherの初期化
-        publisher_ = this->create_publisher<std_msgs::msg::String>("current_traffic_output", 10);
+        publisher_ = this->create_publisher<std_msgs::msg::String>("current_traffic_output", 1);
 
         // popenでスクリプトを実行
         script_thread_ = std::thread(&TrafficObserverCpp::execute_script, this);
@@ -30,7 +30,7 @@ private:
 
     void execute_script() {
         // 実行するスクリプトのパス
-        const char *command = "/root/shell/connect_yolov8.sh";
+        const char *command = "/home/orne-box/traffic_shell/connect_yolov8.sh";
         
         // popenを使用してスクリプトを実行
         FILE *pipe = popen(command, "r");
