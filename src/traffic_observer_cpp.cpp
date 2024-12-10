@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: 2024 Shuma Suzuki
+// SPDX-LIcense-Identifier: BSD-3-Clause
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/string.hpp>
 #include <cstdio>
