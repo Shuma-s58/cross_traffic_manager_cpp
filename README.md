@@ -1,4 +1,4 @@
-# crossing_traffic_manager_cpp
+# cross_traffic_manager_cpp
 これは、ros2のパッケージです.  
 つくばチャレンジ2024の選択課題B(信号あり認識横断)のために作成されました.(C++ ver)
 
@@ -32,11 +32,11 @@ crossing_point_numbers:
 
 * traffic_observer_cpp.cpp
 ```
-$ ros2 run crossing_traffic_manager_cpp traffic_observer_cpp
+$ ros2 run cross_traffic_manager_cpp traffic_observer_cpp
 ```
 * traffic_judgementer_cpp.cpp
 ```
-$ ros2 run crossing_traffic_manager_cpp traffic_judgementer_cpp
+$ ros2 run cross_traffic_manager_cpp traffic_judgementer_cpp
 ```
 
 
